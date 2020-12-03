@@ -11,6 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
+using Prometheus;
+
+
 namespace sample_api
 {
     public class Startup
@@ -41,6 +44,10 @@ namespace sample_api
             app.UseRouting();
 
             app.UseAuthorization();
+
+            // Add Metrics
+            app.UseMetricServer();
+            app.UseRequestMiddleware();
 
             app.UseEndpoints(endpoints =>
             {
