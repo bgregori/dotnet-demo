@@ -24,7 +24,7 @@ public class RequestMiddleware
         var path = httpContext.Request.Path.Value;  
         var method = httpContext.Request.Method;  
   
-        var counter = Metrics.CreateCounter("prometheus_demo_request_total", "HTTP Requests Total", new CounterConfiguration  
+        var counter = Metrics.CreateCounter("demo_request_total", "HTTP Requests Total", new CounterConfiguration  
         {  
             LabelNames = new[] { "path", "method", "status" }  
         });  
